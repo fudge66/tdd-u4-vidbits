@@ -1,0 +1,19 @@
+    <h1>Edit a video</h1>
+    <form id="edit-video-form" method="post" action="/videos/{{video._id}}/updates">
+      <label for="title">Title</label>
+      <input name="title" id="title" type="text" value="{{#if video.title}}{{video.title}}{{/if}}"/>
+      {{#with video.errors.title as |error|}}
+        <div class="error-message">{{error.message}}</div>
+      {{/with}}
+      <label for="description">Description</label>
+      <textarea name="description" id="description">{{#if video.description}}{{video.description}}{{/if}}</textarea>
+      {{#with video.errors.description as |error|}}
+        <div class="error-message">{{error.message}}</div>
+      {{/with}}
+      <label for="url">URL</label>
+      <input name="url" id="url" type="text" value="{{#if video.url}}{{video.url}}{{/if}}"/>
+      {{#with video.errors.url as |error|}}
+        <div class="error-message">{{error.message}}</div>
+      {{/with}}
+      <input id="edit-button" type="submit" value="EDIT" class="add-video-button"/>
+    </form>
